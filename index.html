@@ -3,288 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专注力训练 - 舒尔特方格</title>
-    <style>
-        :root {
-            --primary-color: #4a90e2;
-            --success-color: #2ecc71;
-            --error-color: #e74c3c;
-            --bg-color: #f0f7ff;
-            --cell-bg: #ffffff;
-            --cell-hover: #e6f2ff;
-        }
-
-        body {
-            font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .controls {
-            background: white;
-            padding: 15px 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        select {
-            padding: 8px 15px;
-            border-radius: 8px;
-            border: 2px solid var(--primary-color);
-            font-size: 16px;
-            outline: none;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: transform 0.1s, background-color 0.2s;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background-color: #357abd;
-            transform: scale(1.05);
-        }
-
-        button:active {
-            transform: scale(0.95);
-        }
-
-        .timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            min-width: 100px;
-            text-align: center;
-        }
-
-        #grid-container {
-            display: grid;
-            gap: 10px;
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            /* 默认 3x3，会在 JS 中动态调整 */
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .cell {
-            background-color: var(--cell-bg);
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.2s;
-            width: 60px;
-            height: 60px;
-        }
-
-        @media (min-width: 600px) {
-            .cell {
-                width: 80px;
-                height: 80px;
-                font-size: 32px;
+    <title>桃李未来小程序导航站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#f43f5e', // Rose 500
+                            600: '#e11d48',
+                        }
+                    }
+                }
             }
         }
-
-        .cell:hover {
-            background-color: var(--cell-hover);
-            border-color: var(--primary-color);
-        }
-
-        .cell.correct {
-            background-color: var(--success-color);
-            color: white;
-            border-color: var(--success-color);
-            animation: pop 0.3s;
-        }
-
-        .cell.wrong {
-            background-color: var(--error-color);
-            color: white;
-            animation: shake 0.4s;
-        }
-
-        .message {
-            font-size: 20px;
-            color: #666;
-            min-height: 30px;
-            text-align: center;
-        }
-
-        @keyframes pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
-    <h1>🚀 舒尔特方格挑战</h1>
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800 tracking-tight">桃李未来小程序导航站</h1>
+            </div>
+            
+            <div class="flex flex-1 w-full md:w-auto md:max-w-xl gap-2">
+                <div class="relative flex-1">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="searchInput" placeholder="搜索链接..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all shadow-sm">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="container mx-auto px-4 pb-4 overflow-x-auto">
+            <div class="flex gap-2" id="categoryFilters">
+                <!-- Categories will be injected here -->
+            </div>
+        </div>
+    </header>
 
-    <div class="controls">
-        <select id="difficulty">
-            <option value="3">3 x 3 (简单)</option>
-            <option value="4" selected>4 x 4 (标准)</option>
-            <option value="5">5 x 5 (挑战)</option>
-            <option value="6">6 x 6 (大师)</option>
-        </select>
-        <button onclick="startGame()">开始挑战</button>
-        <div class="timer" id="timer">0.00 秒</div>
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div id="linkGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Cards will be injected here -->
+        </div>
+        
+        <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-gray-400">
+            <i class="fas fa-inbox text-6xl mb-4 text-gray-200"></i>
+            <p class="text-lg">暂无链接</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>&copy; 2026 桃李未来小程序导航站. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        操作成功
     </div>
 
-    <div id="grid-container"></div>
-
-    <div class="message" id="message">请点击 "开始挑战"</div>
-
-    <script>
-        let currentState = {
-            isPlaying: false,
-            currentNumber: 1,
-            gridSize: 4,
-            startTime: 0,
-            timerInterval: null
-        };
-
-        const gridContainer = document.getElementById('grid-container');
-        const timerElement = document.getElementById('timer');
-        const messageElement = document.getElementById('message');
-        const difficultySelect = document.getElementById('difficulty');
-
-        function startGame() {
-            // 重置状态
-            if (currentState.timerInterval) clearInterval(currentState.timerInterval);
-            
-            const size = parseInt(difficultySelect.value);
-            currentState = {
-                isPlaying: true,
-                currentNumber: 1,
-                gridSize: size,
-                startTime: Date.now(),
-                timerInterval: null
-            };
-
-            // 生成数字并打乱
-            const totalCells = size * size;
-            const numbers = Array.from({length: totalCells}, (_, i) => i + 1);
-            shuffleArray(numbers);
-
-            // 渲染网格
-            renderGrid(size, numbers);
-
-            // 启动计时器
-            timerElement.textContent = '0.00 秒';
-            currentState.timerInterval = setInterval(updateTimer, 10);
-            
-            messageElement.textContent = `请按顺序点击数字：1`;
-            messageElement.style.color = '#333';
-        }
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        function renderGrid(size, numbers) {
-            gridContainer.innerHTML = '';
-            gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-
-            numbers.forEach(num => {
-                const cell = document.createElement('div');
-                cell.className = 'cell';
-                cell.textContent = num;
-                cell.dataset.number = num;
-                cell.onclick = () => handleCellClick(cell, num);
-                gridContainer.appendChild(cell);
-            });
-        }
-
-        function handleCellClick(cell, number) {
-            if (!currentState.isPlaying) return;
-
-            if (number === currentState.currentNumber) {
-                // 点击正确
-                cell.classList.add('correct');
-                currentState.currentNumber++;
-                
-                // 检查是否完成
-                if (currentState.currentNumber > currentState.gridSize * currentState.gridSize) {
-                    endGame();
-                } else {
-                    messageElement.textContent = `下一个数字：${currentState.currentNumber}`;
-                }
-            } else {
-                // 点击错误
-                cell.classList.add('wrong');
-                setTimeout(() => cell.classList.remove('wrong'), 400);
-                // 可以在这里添加错误音效或者惩罚时间
-            }
-        }
-
-        function updateTimer() {
-            const now = Date.now();
-            const elapsed = (now - currentState.startTime) / 1000;
-            timerElement.textContent = elapsed.toFixed(2) + ' 秒';
-        }
-
-        function endGame() {
-            clearInterval(currentState.timerInterval);
-            currentState.isPlaying = false;
-            const finalTime = timerElement.textContent;
-            messageElement.textContent = `🎉 挑战成功！用时：${finalTime}`;
-            messageElement.style.color = 'var(--success-color)';
-            messageElement.style.fontWeight = 'bold';
-        }
-
-        // 初始化显示一个默认的网格（不可交互）
-        window.onload = () => {
-             const size = 4;
-             const numbers = Array.from({length: 16}, (_, i) => i + 1);
-             shuffleArray(numbers);
-             renderGrid(size, numbers);
-             // 禁用交互
-             currentState.isPlaying = false;
-        };
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
