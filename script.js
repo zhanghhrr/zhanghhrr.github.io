@@ -62,6 +62,24 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
         description: '帮助淘淘和礼礼完成农场任务吧~ by 张皓然',
         category: '游戏',
         createdAt: Date.now()
+    },
+    {
+        id: '8',
+        title: '约瑟夫抽杀',
+        url: 'https://zhanghhrr.github.io/josephus/',
+        iconUrl:'https://www.svgrepo.com/show/481500/mouse-illustration-3.svg',
+        description: '最后存活下来的老鼠编号是多少呢？ by 柴总',
+        category: '游戏',
+        createdAt: Date.now()
+    },
+    {
+        id: '9',
+        title: '自由狗问题',
+        url: 'https://zhanghhrr.github.io/circledog/',
+        iconUrl:'https://www.svgrepo.com/show/405231/dog-face.svg',
+        description: '被绳子拴住的狗，能跑动的区域演示 by 柴总',
+        category: '几何',
+        createdAt: Date.now()
     }
 ];
 
