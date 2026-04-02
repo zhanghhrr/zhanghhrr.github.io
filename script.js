@@ -80,6 +80,15 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
         description: '被绳子拴住的狗，能跑动的区域演示 by 柴总',
         category: '几何',
         createdAt: Date.now()
+    },
+    {
+        id: '10',
+        title: '等积变形演示',
+        url: 'https://zhanghhrr.github.io/equiareal_deformation/',
+        iconUrl:'https://www.svgrepo.com/show/339784/area-custom.svg',
+        description: '平四、长方形、梯形的等积变形互动演示 by 张皓然',
+        category: '几何',
+        createdAt: Date.now()
     }
 ];
 
