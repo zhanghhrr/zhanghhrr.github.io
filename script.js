@@ -89,6 +89,15 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
         description: '平四、长方形、梯形的等积变形互动演示 by 张皓然',
         category: '几何',
         createdAt: Date.now()
+    },
+    {
+        id: '11',
+        title: '打洞立方体求体积表面积',
+        url: 'https://zhanghhrr.github.io/perforated_cube/',
+        iconUrl:'https://www.svgrepo.com/show/482378/cube-sugar-2.svg',
+        description: '打洞立方体求体积表面积 by 轩哥',
+        category: '几何',
+        createdAt: Date.now()
     }
 ];
 
