@@ -83,7 +83,7 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
     },
     {
         id: '10',
-        title: '等积变形演示',
+        title: '等积变形',
         url: 'https://zhanghhrr.github.io/equiareal_deformation/',
         iconUrl:'https://www.svgrepo.com/show/339784/area-custom.svg',
         description: '平四、长方形、梯形的等积变形互动演示 by 张皓然',
@@ -92,7 +92,7 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
     },
     {
         id: '11',
-        title: '打洞立方体求体积表面积',
+        title: '打洞立方体',
         url: 'https://zhanghhrr.github.io/perforated_cube/',
         iconUrl:'https://www.svgrepo.com/show/482378/cube-sugar-2.svg',
         description: '打洞立方体求体积表面积 by 轩哥',
@@ -132,6 +132,33 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
         url: 'https://zhanghhrr.github.io/circular_track/',
         iconUrl:'https://www.svgrepo.com/show/210337/race-track.svg',
         description: '环形跑道追及问题 by 🐉',
+        category: '行程',
+        createdAt: Date.now()
+    },
+    {
+        id: '16',
+        title: '圆的最密排布',
+        url: 'https://duwgpnlxnyhtw.ok.kimi.link/',
+        iconUrl:'https://www.svgrepo.com/show/335831/circles-seven.svg',
+        description: '探索最省绳子的捆扎奥秘，发现生活中的数学之美 by 柴总',
+        category: '几何',
+        createdAt: Date.now()
+    },
+    {
+        id: '17',
+        title: '柳卡图',
+        url: 'https://hgb3f4vqkkgsg.ok.kimi.link/',
+        iconUrl:'https://www.svgrepo.com/show/495214/diagram.svg',
+        description: '往返运动相遇问题可视化工具 by 🐉&柴总',
+        category: '行程',
+        createdAt: Date.now()
+    },
+    {
+        id: '18',
+        title: '时钟问题',
+        url: 'https://hgb3f4vqkkgsg.ok.kimi.link/',
+        iconUrl:'https://www.svgrepo.com/show/520498/clock.svg',
+        description: '时钟问题所有题型探究 by 柴总',
         category: '行程',
         createdAt: Date.now()
     }
