@@ -98,6 +98,42 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
         description: '打洞立方体求体积表面积 by 轩哥',
         category: '几何',
         createdAt: Date.now()
+    },
+    {
+        id: '12',
+        title: '立方体染色演示（进阶）',
+        url: 'https://zhanghhrr.github.io/cubecolour2/',
+        iconUrl:'https://www.svgrepo.com/show/293832/cube.svg',
+        description: '能展开观察的立方体染色演示 by 🐉',
+        category: '几何',
+        createdAt: Date.now()
+    },
+    {
+        id: '13',
+        title: '滚圆问题',
+        url: 'https://zhanghhrr.github.io/rolling_circle/',
+        iconUrl:'https://www.svgrepo.com/show/527642/circle-top-up.svg',
+        description: '圆滚过的面积演示 by 柴总',
+        category: '几何',
+        createdAt: Date.now()
+    },
+    {
+        id: '14',
+        title: '水中浸物',
+        url: 'https://zhanghhrr.github.io/immerse/',
+        iconUrl:'https://www.svgrepo.com/show/476814/water-transportation.svg',
+        description: '物体浸入水中，体积变化演示 by 🐉',
+        category: '几何',
+        createdAt: Date.now()
+    },
+    {
+        id: '15',
+        title: '看得见问题',
+        url: 'https://zhanghhrr.github.io/circular_track/',
+        iconUrl:'https://www.svgrepo.com/show/210337/race-track.svg',
+        description: '环形跑道追及问题 by 🐉',
+        category: '行程',
+        createdAt: Date.now()
     }
 ];
 
