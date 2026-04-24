@@ -147,7 +147,7 @@ let links = JSON.parse(localStorage.getItem('taoli_links')) || [
     {
         id: '17',
         title: '柳卡图',
-        url: 'https://hgb3f4vqkkgsg.ok.kimi.link/',
+        url: 'https://44qbh36bex7y6.ok.kimi.link',
         iconUrl:'https://www.svgrepo.com/show/495214/diagram.svg',
         description: '往返运动相遇问题可视化工具 by 🐉&柴总',
         category: '行程',
